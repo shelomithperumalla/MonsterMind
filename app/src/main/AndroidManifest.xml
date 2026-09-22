@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Permissions for image access and camera -->
+    <!-- For Android 13+: READ_MEDIA_IMAGES is required instead of READ_EXTERNAL_STORAGE -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
+    <!-- For Android 12 and below -->
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
+    <!-- For saving images to device -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
+    <!-- For camera capture (optional, for future enhancement) -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Internet (not required for MVP, but good to declare as unused) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    tools:ignore="PermissionImpliedByUsesCameraPermission"
+
+    <application
+        android:name="com.monstermind.MyApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MonsterMind"
+        tools:targetApi="31">
+
+        <activity
+            android:name="com.monstermind.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MonsterMind">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
